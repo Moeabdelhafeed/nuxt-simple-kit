@@ -6,14 +6,24 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  css:[
+  css: [
     "~/assets/css/main.css",
   ],
 
   vite: {
     plugins: [
       tailwindcss(),
-    ]
+    ],
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'class-variance-authority',
+        'clsx',
+        'reka-ui',
+        'tailwind-merge',
+      ]
+    }
   },
 
   i18n: {
@@ -31,28 +41,28 @@ export default defineNuxtConfig({
     },
   },
 
-    shadcn: {
-      /**
-       * Prefix for all the imported component.
-       * @default "Ui"
-       */
-      prefix: '',
-      /**
-       * Directory that the component lives in.
-       * Will respect the Nuxt aliases.
-       * @link https://nuxt.com/docs/api/nuxt-config#alias
-       * @default "@/components/ui"
-       */
-      componentDir: '@/components/ui'
-    },
+  shadcn: {
+    /**
+     * Prefix for all the imported component.
+     * @default "Ui"
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * Will respect the Nuxt aliases.
+     * @link https://nuxt.com/docs/api/nuxt-config#alias
+     * @default "@/components/ui"
+     */
+    componentDir: '@/components/ui'
+  },
 
-    seo: {
-      automaticDefaults: false
-    },
+  seo: {
+    automaticDefaults: false
+  },
 
-  
 
-  
+
+
 
   modules: [
     "@nuxtjs/i18n",
